@@ -4,7 +4,7 @@ import { getAllProducts } from "../services/products.service";
 import { getImage } from '../shared/utils/utils';
 
 const Card = () => {
-  const [products, setProducts] = useState<any>([]);
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
     getAllProducts()
@@ -14,7 +14,7 @@ const Card = () => {
 
   return (
     <React.Fragment>
-      {products.map((p: any) => (
+      {products.length && products.map((p: any) => (
         <div key={p.id} className="font-poppins w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
             <img
