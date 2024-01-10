@@ -1,7 +1,15 @@
+import React, { useEffect, useState } from "react";
 import { Button } from "flowbite-react";
-import React from "react";
+import { getNavBarData } from "../services/ui.service";
 
 const NavBar = () => {
+  const [navData, setNavData] = useState<any>();
+
+  useEffect(() => {
+    getNavBarData()
+      .then((v) => setNavData(v.data))
+      .catch((err) => console.error(err));
+  }, []);
   return (
     <nav className="bg-white sticky w-full z-20 top-0 start-0 border-b border-gray-200 font-poppins">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -10,13 +18,13 @@ const NavBar = () => {
           className="flex items-center space-x-2 rtl:space-x-reverse"
         >
           <img
-            src="http://localhost:1337/uploads/logo_bola_cp_be27bbd491.jpg"
+            src={navData?.attributes.logo.data.attributes.url}
             className="h-12"
-            alt="consueloplaza.graphic Logo"
-          />
+            alt="logo"
+          /> 
           <img
-            src="http://localhost:1337/uploads/text_cp_f4b551cb3a.jpg"
-            className="h-10"
+            src={navData?.attributes.brand.data.attributes.url}
+            className="h-10 hidden md:block"
             alt="consueloplaza.graphic"
           />
         </a>

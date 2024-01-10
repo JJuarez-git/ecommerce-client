@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { initFlowbite } from "flowbite";
-import { Button, Flowbite } from "flowbite-react";
-import { customTheme } from "./shared/config/theme";
+import { Flowbite } from "flowbite-react";
 import Card from "./components/App-Card";
 import NavBar from "./components/App-NavBar";
+import { customTheme } from "./shared/config/theme";
 
 function App() {
   useEffect(() => {
@@ -14,9 +14,9 @@ function App() {
     <React.Fragment>
       <Flowbite theme={{ theme: customTheme }}>
         <NavBar />
-        <Button color="primary">Click me</Button>
-        <Button color="primary" className="p-0 rounded-md ring-neutral-100">Get started</Button>
-        <Card />
+        <div className="container mx-auto py-4">
+          <Card />
+        </div>
       </Flowbite>
     </React.Fragment>
   );
