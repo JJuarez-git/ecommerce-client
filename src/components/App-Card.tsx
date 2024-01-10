@@ -19,7 +19,7 @@ const Card = () => {
           <a href="#">
             <img
               className="p-8 rounded-t-lg"
-              src={getImage(p.attributes.cover.data.attributes.url)}
+              src={p.attributes.cover.data.attributes.url}
               alt="product image"
             />
           </a>
