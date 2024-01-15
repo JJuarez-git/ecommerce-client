@@ -13,21 +13,18 @@ const NavBar = () => {
   return (
     <nav className="bg-white sticky w-full z-20 top-0 start-0 border-b border-gray-200 font-poppins">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-2 rtl:space-x-reverse"
-        >
+        { navData ? <div className="flex items-center space-x-2 rtl:space-x-reverse">
           <img
-            src={navData?.attributes.logo.data.attributes.url}
+            src={navData?.attributes.logo.data?.attributes.url}
             className="h-12"
             alt="logo"
           /> 
           <img
-            src={navData?.attributes.brand.data.attributes.url}
+            src={navData?.attributes.brand.data?.attributes.url}
             className="h-10 hidden md:block"
             alt="consueloplaza.graphic"
           />
-        </a>
+        </div> : null }
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <Button color="primary" className="p-0 rounded-md ring-neutral-100">
             Get started

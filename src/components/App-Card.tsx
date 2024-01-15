@@ -15,23 +15,22 @@ const Card = () => {
   return (
     <React.Fragment>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {products.length &&
-          products.map((p: any) => (
+        {products?.map((p: any) => (
             <div
-              key={p.id}
+              key={p?.id}
               className="font-poppins w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow justify-self-center"
             >
               <a href="#">
                 <img
                   className="p-8 rounded-t-lg"
-                  src={p.attributes.cover.data.attributes.url}
+                  src={p?.attributes.cover.data?.attributes.url}
                   alt="product image"
                 />
               </a>
               <div className="px-5 pb-5">
                 <a href="#">
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {p.attributes.title}
+                    {p?.attributes.title}
                   </h5>
                 </a>
                 <div className="flex items-center mt-2.5 mb-5">
@@ -88,7 +87,7 @@ const Card = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                    ${p.attributes.price}
+                    ${p?.attributes.price}
                   </span>
                   <Button
                     color="primary"
